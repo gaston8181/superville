@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gaston.superville.dto.PersonaUpdateDTO;
 import com.gaston.superville.model.Persona;
 import com.gaston.superville.repository.IPersonaRepo;
 
@@ -31,16 +32,24 @@ public class PersonaServiceImpl implements IPersonaService {
 	}
 
 	@Override
-	public void actualizar(Persona persona) {
+	public void actualizar(PersonaUpdateDTO personaDTO) {
 		LOG.info("Se esta actualizando la persona.");
+
+		Persona persona = (repo.findById(personaDTO.getId())).get();
+		persona.setNombre(personaDTO.getNombre());
+		persona.setCorreo(personaDTO.getCorreo());
+		persona.setTelefono(persona.getTelefono());
 		repo.save(persona);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		LOG.info("Se esta eliminando la persona.");
-		repo.deleteById(id);
-		
+
+		if (repo.existsById(id)) {
+			repo.deleteById(id);
+		}
+
 	}
 
 }

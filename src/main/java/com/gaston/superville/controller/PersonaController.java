@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gaston.superville.dto.PersonaUpdateDTO;
 import com.gaston.superville.model.Persona;
 import com.gaston.superville.service.IPersonaService;
 
@@ -33,7 +34,7 @@ public class PersonaController {
 	}
 
 	@PutMapping
-	public void modificar(@RequestBody Persona persona) {
+	public void modificar(@RequestBody PersonaUpdateDTO persona) {
 		service.actualizar(persona);
 
 	}
