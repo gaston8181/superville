@@ -7,8 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gaston.superville.dto.PersonaRequestDTO;
 import com.gaston.superville.dto.PersonaUpdateDTO;
+import com.gaston.superville.model.Genero;
+import com.gaston.superville.model.Nacionalidad;
 import com.gaston.superville.model.Persona;
+import com.gaston.superville.model.TipoDoc;
 import com.gaston.superville.repository.IPersonaRepo;
 
 @Service
@@ -19,8 +23,27 @@ public class PersonaServiceImpl implements IPersonaService {
 	private IPersonaRepo repo;
 
 	@Override
-	public void registrar(Persona persona) {
+	public void registrar(PersonaRequestDTO personaDTO) {
 		LOG.info("Se esta registrando la persona.");
+
+		Persona persona = new Persona();
+		persona.setCorreo(personaDTO.getCorreo());
+		persona.setIdPersona(personaDTO.getIdPersona());
+		persona.setNombre(personaDTO.getNombre());
+		persona.setNroDoc(personaDTO.getNroDoc());
+		persona.setTelefono(personaDTO.getTelefono());
+		
+		Genero genero = new Genero();
+		genero.setIdGenero(personaDTO.getIdGenero());
+		persona.setGenero(genero);
+		
+		Nacionalidad nacionalidad = new Nacionalidad();
+		nacionalidad.setIdNacionalidad(personaDTO.getIdNacionalidad());
+		persona.setNacionalidad(nacionalidad);
+		
+		TipoDoc tipoDoc = new TipoDoc();
+		tipoDoc.setIdTipoDoc(personaDTO.getIdTipoDoc());
+		persona.setTipoDoc(tipoDoc);
 
 		repo.save(persona);
 	}
@@ -38,7 +61,7 @@ public class PersonaServiceImpl implements IPersonaService {
 		Persona persona = (repo.findById(personaDTO.getId())).get();
 		persona.setNombre(personaDTO.getNombre());
 		persona.setCorreo(personaDTO.getCorreo());
-		persona.setTelefono(persona.getTelefono());
+		persona.setTelefono(personaDTO.getTelefono());
 		repo.save(persona);
 	}
 

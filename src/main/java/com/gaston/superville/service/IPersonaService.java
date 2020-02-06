@@ -2,12 +2,13 @@ package com.gaston.superville.service;
 
 import java.util.List;
 
+import com.gaston.superville.dto.PersonaRequestDTO;
 import com.gaston.superville.dto.PersonaUpdateDTO;
 import com.gaston.superville.model.Persona;
 
 public interface IPersonaService {
 
-	void registrar(Persona persona);
+	void registrar(PersonaRequestDTO persona);
 
 	List<Persona> buscarTodos();
 

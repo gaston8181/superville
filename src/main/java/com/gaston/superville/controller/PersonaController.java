@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gaston.superville.dto.PersonaRequestDTO;
 import com.gaston.superville.dto.PersonaUpdateDTO;
 import com.gaston.superville.model.Persona;
 import com.gaston.superville.service.IPersonaService;
@@ -29,7 +30,7 @@ public class PersonaController {
 	}
 
 	@PostMapping
-	public void registrar(@RequestBody Persona persona) {
+	public void registrar(@RequestBody PersonaRequestDTO persona) {
 		service.registrar(persona);
 	}
 
