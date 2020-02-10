@@ -32,6 +32,9 @@ public class Persona {
 	@Column(name = "telefono")
 	private String telefono;
 
+	@Column(name = "edad")
+	private Long edad;
+
 	public int getIdPersona() {
 		return idPersona;
 	}
@@ -94,6 +97,14 @@ public class Persona {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public Long getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Long edad) {
+		this.edad = edad;
 	}
 
 }

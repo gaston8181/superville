@@ -1,0 +1,22 @@
+package com.gaston.superville.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.gaston.superville.model.Persona;
+
+public interface ITotalizadorRepo extends JpaRepository<Persona, Integer>{
+
+	@Query("select per.genero.idGenero, count(*) from Persona per group by per.genero.idGenero" )
+	List<Object[]> obtenerEstadisticas();
+	
+	@Query("select (select count(per.nacionalidad.idNacionalidad)*100/Count(s.idPersona) from Persona as s )  "
+			+ "from Persona per"
+			+ " where per.nacionalidad.idNacionalidad = 1"
+			+ " group by per.nacionalidad.idNacionalidad")
+	Long porcentajeArgentinos();
+
+
+}

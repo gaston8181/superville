@@ -3,7 +3,7 @@ package com.gaston.superville.dto;
 public class EstadisticaDTO {
 
 	private String cantMujeres;
-	private String cantHombre;
+	private String cantHombres;
 	private String porcentajeArgentinos;
 
 	public String getCantMujeres() {
@@ -14,12 +14,12 @@ public class EstadisticaDTO {
 		this.cantMujeres = cantMujeres;
 	}
 
-	public String getCantHombre() {
-		return cantHombre;
+	public String getCantHombres() {
+		return cantHombres;
 	}
 
-	public void setCantHombre(String cantHombre) {
-		this.cantHombre = cantHombre;
+	public void setCantHombres(String cantHombres) {
+		this.cantHombres = cantHombres;
 	}
 
 	public String getPorcentajeArgentinos() {

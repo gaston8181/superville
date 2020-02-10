@@ -11,6 +11,7 @@ import com.gaston.superville.service.ITotalizadorService;
 @RestController
 @RequestMapping("/estadisticas")
 public class TotalizadorController {
+
 	@Autowired
 	private ITotalizadorService service;
 	
