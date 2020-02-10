@@ -45,4 +45,9 @@ public class PersonaController {
 		service.eliminar(id);
 
 	}
+	
+	@PostMapping(value = "/{id1}/padre/{id2}")
+	public void registrarPadre(@PathVariable("id1") Integer id1, @PathVariable("id2") Integer id2) {
+		service.registrarPadre(id1, id2);
+	}
 }
