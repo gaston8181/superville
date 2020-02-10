@@ -1,20 +1,31 @@
 package com.gaston.superville.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class PersonaRequestDTO {
+	
+	@ApiModelProperty(notes = "Representa el id de la persona. Valor unico", required = true, example="1")
 	private Integer idPersona;
 
+	@ApiModelProperty(notes = "Representa el nombre de la persona", required = true, example="Gaston")
 	private String nombre;
 
+	@ApiModelProperty(notes = "Representa el id del tipo documento", required = true, example="1")
 	private Integer idTipoDoc;
 
+	@ApiModelProperty(notes = "Representa el numero de documento", required = true, example="33666999")
 	private String nroDoc;
 
+	@ApiModelProperty(notes = "Representa id de la nacionalidad", required = true, example="1")
 	private Integer idNacionalidad;
 
+	@ApiModelProperty(notes = "Representa id del genero", required = true, example="1")
 	private Integer idGenero;
 
+	@ApiModelProperty(notes = "Representa el correo electronico", required = true, example="agui.gaston@gmail.com")
 	private String correo;
 
+	@ApiModelProperty(notes = "Representa el telefono de contacto", required = true, example="113334444")
 	private String telefono;
 
 	public Integer getIdPersona() {

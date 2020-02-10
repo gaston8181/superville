@@ -1,9 +1,16 @@
 package com.gaston.superville.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class EstadisticaDTO {
 
+	@ApiModelProperty(notes = "Representa la cantidad de mujeres existentes", required = true, example="10")
 	private String cantMujeres;
+	
+	@ApiModelProperty(notes = "Representa la cantidad de hombres existentes", required = true, example="10")
 	private String cantHombres;
+	
+	@ApiModelProperty(notes = "Representa el porcentaje de argentinos", required = true, example="50")
 	private String porcentajeArgentinos;
 
 	public String getCantMujeres() {
