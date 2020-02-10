@@ -75,4 +75,11 @@ public class PersonaServiceImpl implements IPersonaService {
 
 	}
 
+	@Override
+	public String relacion(Integer id1, Integer id2) {
+		LOG.info("Se esta buscando la relacion de las personas.");
+		
+		return "";
+	}
+
 }

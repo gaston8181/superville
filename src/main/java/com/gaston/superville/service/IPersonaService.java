@@ -15,5 +15,7 @@ public interface IPersonaService {
 	void actualizar(PersonaUpdateDTO persona);
 
 	void eliminar(Integer id);
+	
+	String relacion(Integer id1, Integer id2);
 
 }

@@ -35,6 +35,9 @@ public class Persona {
 	@Column(name = "edad")
 	private Long edad;
 
+	@ManyToOne
+	private Persona padre;
+
 	public int getIdPersona() {
 		return idPersona;
 	}
@@ -105,6 +108,14 @@ public class Persona {
 
 	public void setEdad(Long edad) {
 		this.edad = edad;
+	}
+
+	public Persona getPadre() {
+		return padre;
+	}
+
+	public void setPadre(Persona padre) {
+		this.padre = padre;
 	}
 
 }
